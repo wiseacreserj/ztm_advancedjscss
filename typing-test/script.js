@@ -284,3 +284,40 @@ function genarateLongText() {
 }
 
 //Handle Typing over the dysplayer text and scrolling
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Backspace") {
+        if (totalTyped.length > 0) {
+            currentCharIndex = Math.max(currentCharIndex - 1, 0);
+            totalTyped = totalTyped.slice(0, -1);
+        }
+    } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
+        totalTyped += e.key;
+        currentCharIndex++;
+    }
+
+    const textArray = longText.split("");
+    textContainer.innerText = "";
+    errors = 0;
+
+    for (let i = 0; i < textArray.length; i++) {
+        const span = document.createElement("span");
+
+        if (i < totalTyped.length) {
+            if (totalTyped[i] === textArray[i]) {
+                span.classList.add("correct");
+            } else {
+                span.classList.add("error");
+                errors++;
+            }
+        }
+
+        span.textContent = textArray[i];
+        textContainer.appendChild(span);
+    }
+
+    //Scroll container only after 20 characters
+    if (totalTyped.length >= 20) {
+        const scrollAmount = (totalTyped.length - 20) * 14;
+        textContainer.scrollLeft = scrollAmount;
+    }
+});
