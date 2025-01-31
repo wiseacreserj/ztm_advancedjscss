@@ -26,12 +26,12 @@
         <div class="container">
             <h1>Most Active Users</h1>
             <!-- Loader -->
-            <div class="spinner" id="spinner" hidden>
+            <div class="spinner" id="spinner" style="display: none">
                 <i class="fas fa-cog fa-spin"></i>
             </div>
 
             <!-- Table -->
-            <table id="table">
+            <table id="data-table" style="display: none">
                 <thead>
                     <tr>
                         <th class="name-column">
@@ -48,88 +48,27 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td data-label="Name">Name Here</td>
-                        <td data-label="Email">Email Here</td>
-                        <td data-label="Username">Username Here</td>
-                        <td data-label="Country Name">Country Here</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Name Here</td>
-                        <td data-label="Email">Email Here</td>
-                        <td data-label="Username">Username Here</td>
-                        <td data-label="Country Name">Country Here</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Name Here</td>
-                        <td data-label="Email">Email Here</td>
-                        <td data-label="Username">Username Here</td>
-                        <td data-label="Country Name">Country Here</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Name Here</td>
-                        <td data-label="Email">Email Here</td>
-                        <td data-label="Username">Username Here</td>
-                        <td data-label="Country Name">Country Here</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Name Here</td>
-                        <td data-label="Email">Email Here</td>
-                        <td data-label="Username">Username Here</td>
-                        <td data-label="Country Name">Country Here</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Name Here</td>
-                        <td data-label="Email">Email Here</td>
-                        <td data-label="Username">Username Here</td>
-                        <td data-label="Country Name">Country Here</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Name Here</td>
-                        <td data-label="Email">Email Here</td>
-                        <td data-label="Username">Username Here</td>
-                        <td data-label="Country Name">Country Here</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Name Here</td>
-                        <td data-label="Email">Email Here</td>
-                        <td data-label="Username">Username Here</td>
-                        <td data-label="Country Name">Country Here</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Name Here</td>
-                        <td data-label="Email">Email Here</td>
-                        <td data-label="Username">Username Here</td>
-                        <td data-label="Country Name">Country Here</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Name Here</td>
-                        <td data-label="Email">Email Here</td>
-                        <td data-label="Username">Username Here</td>
-                        <td data-label="Country Name">Country Here</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Name Here</td>
-                        <td data-label="Email">Email Here</td>
-                        <td data-label="Username">Username Here</td>
-                        <td data-label="Country Name">Country Here</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Name Here</td>
-                        <td data-label="Email">Email Here</td>
-                        <td data-label="Username">Username Here</td>
-                        <td data-label="Country Name">Country Here</td>
-                    </tr>
+                <tbody id="table-body">
+                    <!-- Dynamicaly added rows -->
                 </tbody>
             </table>
             <!-- Pagination -->
-            <div class="pagination">
-                <button type="button" id="prev-btn" title="Previous Page">
+            <div class="pagination" id="pagination" style="display: none">
+                <button
+                    type="button"
+                    id="prev-btn"
+                    title="Previous Page"
+                    onclick="prevPage()"
+                >
                     <i class="fas fa-chevron-left"></i>
                 </button>
                 <span id="page-number">1</span>
-                <button type="button" id="next-btn" title="Next Page">
+                <button
+                    type="button"
+                    id="next-btn"
+                    title="Next Page"
+                    onclick="nextPage()"
+                >
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
