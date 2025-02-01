@@ -1,23 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Expense Tracker</title>
 
-    <!-- Zero to Mastery Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
+        <!-- Zero to Mastery Favicon -->
+        <link rel="icon" type="image/png" href="favicon.png" />
 
-    <!-- Grab Favicon from Google (Might be unsupported in the future) -->
-    <!-- <link rel="icon" type="image/png" href="https://www.google.com/s2/u/0/favicons?domain=jacinto.design"> -->
+        <!-- Grab Favicon from Google (Might be unsupported in the future) -->
+        <!-- <link rel="icon" type="image/png" href="https://www.google.com/s2/u/0/favicons?domain=jacinto.design"> -->
 
-    <!-- FontAwesome V5 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Hello, World!</h1>
-    <!-- Script -->
-    <script src="script.js"></script>
-</body>
+        <!-- FontAwesome V5 -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Monthly Expense Tracker</h1>
+            <div class="form-container">
+                <form id="expense-form">
+                    <div class="inputs-container">
+                        <div class="input-group">
+                            <label for="month">Month</label>
+                            <select name="month" id="month">
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="year">Year</label>
+                            <select name="yean" id="yean">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="category">Category</label>
+                            <select name="category" id="category">
+                                <option value="Housing">Housing</option>
+                                <option value="Food">Food</option>
+                                <option value="Transportation">
+                                    Transportation
+                                </option>
+                                <option value="Bills">Bills</option>
+                                <option value="Miscellaneous">
+                                    Miscellaneous
+                                </option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="amount">Amount</label>
+                            <input
+                                type="number"
+                                id="amount"
+                                name="amount"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <button type="submit">Add Expense</button>
+                </form>
+            </div>
+            <div class="chatr-container">
+                <canvas id="expense-chart"></canvas>
+            </div>
+        </div>
+        <!-- Script -->
+        <script src="script.js"></script>
+    </body>
 </html>
