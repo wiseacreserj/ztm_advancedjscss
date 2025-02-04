@@ -21,7 +21,7 @@
     <body>
         <div class="quiz-container">
             <!-- Quiz Box -->
-            <div id="quiz-box">
+            <div id="quiz-box" style="display: none">
                 <h1 id="question-number">Question 1</h1>
                 <h2 id="question-text">
                     What is going to be the first question?
@@ -37,6 +37,47 @@
                 </div>
                 <button type="button" id="next-btn" class="btn" disabled>
                     Next
+                </button>
+            </div>
+            <!-- Loader -->
+            <div id="loader" style="display: none">
+                <h2>Loading Hihg Scores.....</h2>
+            </div>
+            <!-- High Scores -->
+            <div id="high-score-container">
+                <table id="high-score-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Score</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="high-score-list">
+                        <tr class="highlight">
+                            <td>Jacinto</td>
+                            <td>9899</td>
+                            <td>2024-09-12</td>
+                        </tr>
+                        <tr>
+                            <td>Jacinto</td>
+                            <td>9899</td>
+                            <td>2024-09-12</td>
+                        </tr>
+                        <tr>
+                            <td>Jacinto</td>
+                            <td>9899</td>
+                            <td>2024-09-12</td>
+                        </tr>
+                        <tr>
+                            <td>Jacinto</td>
+                            <td>9899</td>
+                            <td>2024-09-12</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" id="play-again-btn" class="btn">
+                    Play Again
                 </button>
             </div>
         </div>
