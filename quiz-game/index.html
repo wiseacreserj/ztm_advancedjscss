@@ -21,30 +21,28 @@
     <body>
         <div class="quiz-container">
             <!-- Quiz Box -->
-            <div id="quiz-box" style="display: none">
+            <div id="quiz-box" style="display: block">
                 <h1 id="question-number">Question 1</h1>
                 <h2 id="question-text">
                     What is going to be the first question?
                 </h2>
                 <div id="timer">Time Left: <span id="time-left">10</span>s</div>
                 <div id="choices-container">
-                    <button type="button" class="choice correct">
+                    <!--       <button type="button" class="choice correct">
                         Choice 1
                     </button>
                     <button type="button" class="choice">Choice 2</button>
                     <button type="button" class="choice wrong">Choice 3</button>
-                    <button type="button" class="choice">Choice 4</button>
+                    <button type="button" class="choice">Choice 4</button> -->
                 </div>
-                <button type="button" id="next-btn" class="btn" disabled>
-                    Next
-                </button>
+                <button type="button" id="next-btn" class="btn">Next</button>
             </div>
             <!-- Loader -->
             <div id="loader" style="display: none">
                 <h2>Loading Hihg Scores.....</h2>
             </div>
             <!-- High Scores -->
-            <div id="high-score-container">
+            <div id="high-score-container" style="display: none">
                 <table id="high-score-table">
                     <thead>
                         <tr>
@@ -54,7 +52,7 @@
                         </tr>
                     </thead>
                     <tbody id="high-score-list">
-                        <tr class="highlight">
+                        <!--  <tr class="highlight">
                             <td>Jacinto</td>
                             <td>9899</td>
                             <td>2024-09-12</td>
@@ -73,7 +71,7 @@
                             <td>Jacinto</td>
                             <td>9899</td>
                             <td>2024-09-12</td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
                 <button type="button" id="play-again-btn" class="btn">
