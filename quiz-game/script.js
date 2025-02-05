@@ -15,6 +15,10 @@ const playAgainBtn = document.getElementById("play-again-btn");
 
 let currentQuestion = 0;
 let questions = [];
+let totalScore = 0;
+let timerInterval;
+let startTime;
+const totalTime = 10000;
 
 //Fetch questions
 
@@ -57,6 +61,9 @@ function loadQuestion() {
             checkAnswer(choice, question.correct_answer.trim());
         choicesContainer.appendChild(button);
     });
+
+    resetTimer();
+    startTimer();
 }
 
 //Load next question
@@ -72,9 +79,46 @@ function decodeHTML(html) {
     return txt.textContent;
 }
 
+//Start timer for question
+function startTimer() {
+    startTime = Date.now();
+    let timeLeft = totalTime;
+    updateTimerDisplay(timeLeft);
+
+    timerInterval = setInterval(() => {
+        const elapsedTime = Date.now() - startTime;
+        timeLeft = totalTime - elapsedTime;
+
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            timeLeft = 0;
+            updateTimerDisplay(timeLeft);
+            disableChoice();
+            nextBtn.disabled = false;
+            const correctAnswer = questions[currentQuestion].correct_answer;
+            highlightCorrectAnswer(correctAnswer);
+        } else {
+            updateTimerDisplay(timeLeft);
+        }
+    }, 50);
+}
+
+//Update timer UI
+function updateTimerDisplay(timeLeft) {
+    const seconds = (timeLeft / 1000).toFixed(2);
+    timerDisplay.innerText = seconds;
+}
+
+//Reset timer to 10s
+function resetTimer() {
+    clearInterval(timerInterval);
+    updateTimerDisplay(totalTime);
+}
+
 //Check if answer is correct
-function checkAnswer(selectedAnswe, correctAnswer) {
-    console.log(selectedAnswe, correctAnswer);
+function checkAnswer(selectedAnswer, correctAnswer) {
+    clearInterval(timerInterval);
+    disableChoice();
 
     const choices = document.querySelectorAll(".choice");
     choices.forEach((choice) => {
@@ -86,7 +130,34 @@ function checkAnswer(selectedAnswe, correctAnswer) {
         choice.disabled = true;
     });
 
+    if (selectedAnswer === correctAnswer) {
+        const elapsedTime = Date.now() - startTime;
+        const timeLeft = totalTime - elapsedTime;
+        const weightedScore = Math.floor((timeLeft / totalTime) * 1000);
+        totalScore += weightedScore;
+        console.log(weightedScore);
+        console.log(totalScore);
+    }
+
     nextBtn.disabled = false;
+}
+
+//Disable choices whet time expires or choice selected
+function disableChoice() {
+    const choices = document.querySelectorAll(".choice");
+    choices.forEach((choice) => {
+        choice.disabled = true;
+    });
+}
+
+//Highlight correct answer
+function highlightCorrectAnswer(correctAnswer) {
+    const choices = document.querySelectorAll(".choice");
+    choices.forEach((choice) => {
+        if (choice.innerText === decodeHTML(correctAnswer)) {
+            choice.classList.add("correct");
+        }
+    });
 }
 
 //Startup
