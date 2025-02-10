@@ -28,10 +28,8 @@ async function fetchQuestions() {
         const response = await fetch(TRIVIA_API_URL);
         const data = await response.json();
         questions = data.results;
-        console.log(data.results);
         loadQuestion();
     } catch (error) {
-        console.log("Error:", error);
         questionText.innerText =
             "Failed to load questions. Please try again later";
     }
@@ -131,8 +129,6 @@ function checkAnswer(selectedAnswer, correctAnswer) {
         const timeLeft = totalTime - elapsedTime;
         const weightedScore = Math.floor((timeLeft / totalTime) * 1000);
         totalScore += weightedScore;
-        console.log(weightedScore);
-        console.log(totalScore);
     }
 
     nextBtn.disabled = false;
@@ -174,7 +170,7 @@ async function saveHighScore() {
         score: totalScore,
         date,
     };
-    console.log("newScore", newScore);
+
     loader.style.display = "block";
 
     try {
