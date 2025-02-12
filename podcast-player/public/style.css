@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 html {
     box-sizing: border-box;
@@ -6,4 +7,34 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
+    background: #c9ced3;
+    font-family: "League Sparta", sans-serif;
+}
+
+.nav-wrapper {
+    height: 50px;
+    width: 100%;
+    background: black;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 0;
+}
+
+.nav-title {
+    font-size: 20px;
+    margin: 13px;
+    margin-left: 25px;
+    color: white;
+}
+
+.nav-wrapper i {
+    color: #1db956;
+    font-size: 25px;
+    position: relative;
+    top: -2px;
+    left: 5px;
 }
