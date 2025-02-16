@@ -168,12 +168,49 @@
             <!-- Player Container -->
             <div class="player-container">
                 <div class="player">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Sunt eos nobis et fuga? Eveniet officiis similique quasi
-                        a at. Numquam obcaecati esse aut modi, eum nostrum
-                        aspernatur recusandae similique ipsam.
-                    </p>
+                    <!-- Image -->
+                    <div class="img-container">
+                        <img
+                            id="image"
+                            src="./default-podcast.png"
+                            alt="Podcast Image"
+                        />
+                    </div>
+                    <!-- Title Container -->
+                    <div class="title-container">
+                        <h2 id="title">Podcast Title</h2>
+                        <h3 id="datePublished">Date Published</h3>
+                    </div>
+                    <!-- Audio Element -->
+                    <audio id="player" src=""></audio>
+                    <div class="controls-container">
+                        <!-- Progress -->
+                        <div class="progress-container" id="progress-container">
+                            <div class="progress" id="progress"></div>
+                            <div class="duration-wrapper">
+                                <span id="current-time">0:00</span>
+                                <span id="duration">0:00</span>
+                            </div>
+                        </div>
+                        <!-- Controls -->
+                        <div class="player-controls">
+                            <i
+                                class="fas fa-backward"
+                                id="prev"
+                                title="-15 seconds"
+                            ></i>
+                            <i
+                                class="fas fa-play main-button"
+                                id="play"
+                                title="Play"
+                            ></i>
+                            <i
+                                class="fas fa-forward"
+                                id="next"
+                                title="+15 seconds"
+                            ></i>
+                        </div>
+                    </div>
                 </div>
                 <div class="queue">
                     <p>
