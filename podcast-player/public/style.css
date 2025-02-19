@@ -42,6 +42,10 @@ body {
     left: 5px;
 }
 
+.nav-list {
+    display: none;
+}
+
 /* Search Container ---------------------------------- */
 .search-container {
     position: absolute;
@@ -404,26 +408,41 @@ button:hover {
     filter: brightness(60%);
 }
 
-/* Media Query: iPhone (Vertical) */
-@media screen and (max-width: 376px) {
-    .player-container {
-        width: 95vw;
+/* Smartphone / Tablet Media Queries ----------------*/
+@media screen and (max-width: 1025px) {
+    /* Navigation */
+    .nav-wrapper {
+        position: fixed;
+        z-index: 10;
     }
 
-    .img-container {
-        left: 29px;
-    }
-
-    h2 {
+    /*  /* .nav {
+        top: 14px;
+    } */
+    */ .nav-title {
         font-size: 20px;
     }
 
-    h3 {
-        font-size: 15px;
+    .nav-list {
+        position: relative;
+        display: flex;
+        top: 2px;
+        left: -4px;
     }
 
-    .player-controls {
-        top: -10px;
-        left: 100px;
+    .nav-list span {
+        font-size: 18px;
+        color: white;
+        position: relative;
+        left: 25px;
+        padding-bottom: 3px;
+    }
+
+    .nav-list span:first-child {
+        margin-right: 10px;
+    }
+
+    .nav-list .selected {
+        border-bottom: 2px solid #1db956;
     }
 }
