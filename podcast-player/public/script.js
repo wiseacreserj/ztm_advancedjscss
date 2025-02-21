@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById("searchInput");
     const searchButton = document.getElementById("searchButton");
     const resetButton = document.getElementById("resetButton");
+    const responseContainer = document.getElementById("response");
 
     //Reset search history
     function resetHistory() {
@@ -72,12 +73,31 @@ document.addEventListener("DOMContentLoaded", () => {
     loadSearchHistory();
 
     //Search Podcasts
-    function searchPopdcast() {
+    async function searchPopdcast() {
         const searchTerm = searchInput.value.trim();
         if (searchTerm) {
             console.log(searchTerm);
             saveSearchHistory(searchTerm);
             loadSearchHistory();
+        } else {
+            responseContainer.innerText = "Please enter a podcast title.";
+        }
+
+        try {
+            const response = await fetch(
+                `/api/search?q=${encodeURIComponent(searchTerm)}`
+            );
+            const data = await response.json();
+
+            responseContainer.textContent = "";
+
+            if (data.feeds && data.feeds.length > 0) {
+                console.log("Results: ", data.feeds);
+            } else {
+                responseContainer.innerText = "No results found";
+            }
+        } catch (error) {
+            responseContainer.innerText = `Error: ${error.message}`;
         }
     }
 
