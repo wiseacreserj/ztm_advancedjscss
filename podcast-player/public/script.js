@@ -1,4 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const searchHistory = document.getElementById("searchHistory");
+    const searchInput = document.getElementById("searchInput");
+    const searchButton = document.getElementById("searchButton");
+    const resetButton = document.getElementById("resetButton");
+
+    //Event listener for search button, input
+    searchButton.addEventListener("click", searchPopdcast);
+    searchInput.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            searchPopdcast();
+        }
+    });
+
+    //Event listener for reset search input
+    searchInput.addEventListener("focus", () => {
+        searchInput.value = "";
+    });
+
+    //Search Podcasts
+    function searchPopdcast() {
+        const searchTerm = searchInput.value.trim();
+        if (searchTerm) {
+            console.log(searchTerm);
+        }
+    }
+
     // Navigation ----------------------------------
     const searchLink = document.getElementById("searchLink");
     const listenLink = document.getElementById("listenLink");
